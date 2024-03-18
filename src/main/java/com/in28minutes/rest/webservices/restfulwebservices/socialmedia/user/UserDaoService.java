@@ -24,7 +24,7 @@ public class UserDaoService {
     }
 
     public User findOne(int id) {
-        return users.stream().filter(u -> u.getId() == id).findAny().get();
+        return users.stream().filter(u -> u.getId() == id).findAny().orElse(null);
     }
 
     public User save(User u) {

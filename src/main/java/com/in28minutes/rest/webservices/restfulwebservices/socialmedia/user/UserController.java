@@ -22,7 +22,11 @@ public class UserController {
 
     @GetMapping("/users/{userId}")
     public User retrieveUser(@PathVariable Integer userId) {
-        return userDaoService.findOne(userId);
+        User u = userDaoService.findOne(userId);
+        if (u == null) {
+            throw new UserNotFoundException("userId : " + userId);
+        }
+        return u;
     }
 
     //POST /users
