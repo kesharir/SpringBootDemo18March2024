@@ -1,12 +1,16 @@
 package com.in28minutes.rest.webservices.restfulwebservices.socialmedia.user;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
 
+import jakarta.validation.Valid;
+
+@Validated
 @RestController
 public class UserController {
     private UserDaoService userDaoService;
@@ -31,7 +35,7 @@ public class UserController {
 
     //POST /users
     @PostMapping("/users")
-    public ResponseEntity createUser(@RequestBody User user) {
+    public ResponseEntity createUser(@Valid @RequestBody User user) {
         User savedUser = userDaoService.save(user);
         // location = /users/{userId}
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
