@@ -18,4 +18,10 @@
 ## Swagger: 
 
 - Quick Overview: 
-  - 2011: Swagger Specification and Swagger Tools 
+  - 2011: Swagger Specification and Swagger Tools were introduced
+  - 2016: Open API Specification created based on Swagger Specification
+    - Swagger Tools continue to exist (Example: Swagger UI)
+  - OpenAPI Specification: Standard language-agnostic interface
+    - Discover and understand REST API
+    - Earlier caller Swagger Specification
+  - Swagger UI: Visualize and interact with your REST API
