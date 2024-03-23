@@ -23,4 +23,16 @@
     - Request Parameter
     - Header
     - Media Type
+  - Using URI Versioning - Twitter
+    - http://localhost:8080/v1/person
+    - http://localhost:8080/v2/person
+  - Request Parameter versioning - Amazon
+    - http://localhost:8080/person?version=1
+    - http://localhost:8080/person?version=2
+  - (Custom) headers versioning - Microsoft
+    - SAME-URL headers = [X-API-VERSION=1]
+    - SAME-URL headers = [X-API-VERSION=2]
+  - Media type versioning (a.k.a "content negotiation" or "accept header") - Github
+    - SAME-URL produces = application/vnd.company.app-v1+json
+    - SAME-URL produces = application/vnd.company.app-v2+json
     
