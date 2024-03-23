@@ -36,3 +36,16 @@
     - SAME-URL produces = application/vnd.company.app-v1+json
     - SAME-URL produces = application/vnd.company.app-v2+json
     
+## Versioning REST API - Factors: 
+
+- URI Pollution (With URI Versioning & Request Parameter versioning)
+- Misuse of HTTP headers (Custom Headers Versioning & Media Type Versioning)
+- Caching (Typically caching can be done on the basis of URI)
+- Can we execute the request on the browser ?
+(URI Versioning & Request Parameter Versioning can be executed but Custom Headers Versioning & Media Type Versioning cannot be executed)
+- API Documentation (Generating documentation for headers & media type versioning will be difficult)
+
+### My Recommendations: 
+
+- Think about versioning even before you need it.
+- One Enterprise - One versioning approach
