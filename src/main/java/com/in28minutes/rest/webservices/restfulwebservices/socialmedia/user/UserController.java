@@ -1,5 +1,7 @@
 package com.in28minutes.rest.webservices.restfulwebservices.socialmedia.user;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -24,13 +26,27 @@ public class UserController {
         return userDaoService.findAll();
     }
 
+    // Add link to response: http://localhost:8080/users
+
+    // EntityModel
+    /**
+     *
+     *
+     */
+
+    // WebMvcLinkBuilder
+
+
     @GetMapping("/users/{userId}")
-    public User retrieveUser(@PathVariable Integer userId) {
+    public EntityModel<User> retrieveUser(@PathVariable Integer userId) {
         User u = userDaoService.findOne(userId);
         if (u == null) {
             throw new UserNotFoundException("userId : " + userId);
         }
-        return u;
+        EntityModel<User> entityModel = EntityModel.of(u);
+        WebMvcLinkBuilder link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).retrieveAllUsers());
+        entityModel.add(link.withRel("all-users"));
+        return entityModel;
     }
 
     //POST /users
