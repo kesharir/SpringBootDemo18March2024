@@ -28,12 +28,14 @@ select * from course;
 delete from course where id=1;
 ```
 
-### JDBC to Spring JDBC: 
+### JDBC to Spring JDBC to JPA to Spring Data JPA: 
 
 - Write a lot lesser number of lines of code
 
 #### JDBC:
 
+- Write a lot of SQL queries! (delete from todo where id=?)
+- And write a lot of java code
 ```
 public void deleteTodo(int id) {
   PreparedStatement st = null;
@@ -53,9 +55,19 @@ public void deleteTodo(int id) {
 ```
 
 #### Spring JDBC: 
+- Write a lot of SQS queries (delete from todo where id=?)
+- But lesser java code
 
 ```
 public void deleteTodo(int id) {
   jdbcTemplate.update("delete from todo where id=?", id);
 }
 ```
+
+#### JPA:
+
+- DO NOT worry about queries 
+- Just Map Entities to Tables!
+
+#### Spring Data JPA: 
+
