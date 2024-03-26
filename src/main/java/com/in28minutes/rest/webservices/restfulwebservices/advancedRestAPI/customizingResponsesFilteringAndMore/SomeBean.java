@@ -1,14 +1,20 @@
 package com.in28minutes.rest.webservices.restfulwebservices.advancedRestAPI.customizingResponsesFilteringAndMore;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties({"field1", "field3"})
+// Static filtering
+//@JsonIgnoreProperties({"field1", "field3"})
+// Dynamic Filtering
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
     private String field1;
-    @JsonIgnore
+// Static Filtering
+//    @JsonIgnore
     private String field2;
     private String field3;
+    private String field4;
 
     public String getField4() {
         return field4;
@@ -17,8 +23,6 @@ public class SomeBean {
     public void setField4(String field4) {
         this.field4 = field4;
     }
-
-    private String field4;
 
     public SomeBean(String field1, String field2, String field3, String field4) {
         this.field1 = field1;
