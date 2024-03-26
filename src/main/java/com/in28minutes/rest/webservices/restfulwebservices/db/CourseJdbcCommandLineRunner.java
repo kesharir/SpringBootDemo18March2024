@@ -1,5 +1,7 @@
-package com.in28minutes.rest.webservices.restfulwebservices.db.jdbc.course;
+package com.in28minutes.rest.webservices.restfulwebservices.db;
 
+import com.in28minutes.rest.webservices.restfulwebservices.db.jdbc.course.Course;
+import com.in28minutes.rest.webservices.restfulwebservices.db.jdbc.course.CourseJdbcRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,10 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
+
+        /**
+         * Using Spring JDBC:
+         */
         repository.insert();
         Course course2 = new Course(2, "Python", "in28Minutes");
         Course course3 = new Course(3, "Java", "in28Minutes");
@@ -28,5 +34,10 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
         System.out.println(" Find Course with id 1 : " + repository.findById(1));
         System.out.println(" Find Course with id 2 : " + repository.findById(2));
 //        System.out.println(" Find Course with id 3 : " + repository.findById(3));
+
+        /**
+         * Using JPA
+         */
+
     }
 }
