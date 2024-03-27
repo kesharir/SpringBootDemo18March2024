@@ -71,3 +71,5 @@ public void deleteTodo(int id) {
 
 #### Spring Data JPA: 
 
+- Let's make JPA even more simpel!
+- I will take care of everything!

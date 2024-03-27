@@ -34,10 +34,5 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
         System.out.println(" Find Course with id 1 : " + repository.findById(1));
         System.out.println(" Find Course with id 2 : " + repository.findById(2));
 //        System.out.println(" Find Course with id 3 : " + repository.findById(3));
-
-        /**
-         * Using JPA
-         */
-
     }
 }

@@ -18,6 +18,9 @@ public class CourseJpaCommandLineRunner implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
+        /**
+         * Using JPA
+         */
         courseJpaRepository.insert(new Course(1, "AWS", "in28Minutes"));
         courseJpaRepository.insert(new Course(2, "Azure", "in28Minutes"));
         courseJpaRepository.insert(new Course(3, "Devops", "in28Minutes"));
