@@ -73,3 +73,28 @@ public void deleteTodo(int id) {
 
 - Let's make JPA even more simpel!
 - I will take care of everything!
+
+### Hiberate vs JPA:
+
+- As of know we have only made use of Jakarta Persistence APIs. 
+  Example: Jakarta.persistence.EntityManager, jakarta.persistence.PersistenceContext
+- JAR : jakarta.persistence-api-x.x.x..jar
+- Also there are hibernate jars in package dependencies : hibernate-core-jakarta-x.x.x.Final.jar, 
+  hibernate-commons-annotations.x.x.x.Final.jar
+- Dependency Tree : spring-boot-starter-data-jpa --> hibernate-core-jakarta --> hibernate-commons-annotations
+
+- JPA defines the specification. It is an API
+  - How do you define entities ?
+  - How do you map attributes ?
+  - Who manages the entities ? 
+  - Hibernate is one of the popular implementations of JPA. 
+    JPA Defines the API and hibernate provides the implements of interfaces in JPA.
+  - Using Hibernate directly would result in a lock in to Hibernate. 
+    - There are other JPA implementations (Toplink, for example)
+
+Example: 
+Entity class comes from two places:
+jakarta.persistence.Entity
+&
+org.hibernate.annotations.Entity
+
