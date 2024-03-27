@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CourseJdbcCommandLineRunner implements CommandLineRunner {
+public class CourseJdbcCommandLineRunner { // implements CommandLineRunner {
     @Autowired
     private CourseJdbcRepository repository;
     /**
@@ -16,7 +16,7 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
      * @param args incoming main method arguments
      * @throws Exception on error
      */
-    @Override
+//    @Override
     public void run(String... args) throws Exception {
 
         /**
