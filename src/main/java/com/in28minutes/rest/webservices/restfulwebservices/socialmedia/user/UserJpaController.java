@@ -1,5 +1,6 @@
 package com.in28minutes.rest.webservices.restfulwebservices.socialmedia.user;
 
+import com.in28minutes.rest.webservices.restfulwebservices.socialmedia.post.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -46,5 +47,17 @@ public class UserJpaController {
     @DeleteMapping("/jpa/users/{id}")
     public void delete(@PathVariable Integer id) {
         userRepository.deleteById(id);
+    }
+
+    /**
+     * Post
+     */
+
+    @GetMapping("jpa/users/{id}/posts")
+    public List<Post> retrievePostsForUser(@PathVariable int id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty())
+            throw new UserNotFoundException("id :" + id);
+        return user.get().getPosts();
     }
 }
